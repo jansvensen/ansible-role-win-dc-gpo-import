@@ -28,3 +28,8 @@
     script: files/gpo-import.ps1
     args:
       creates: C:\Logs\gpo-import.txt
+
+  - name: Delete GPO directory
+    ansible.windows.win_file:
+      path: c:\GPO
+      state: absent
