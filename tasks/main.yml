@@ -25,6 +25,7 @@
       dest: c:\GPO\GPO
 
   - name: Import GPO
+    become: true
     script: files/gpo-import.ps1
     args:
       creates: C:\Logs\gpo-import.txt
