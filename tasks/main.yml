@@ -25,7 +25,6 @@
       dest: '{{ directory_gpo }}\GPO'
 
   - name: Import GPO
-    become: true
     script: files/gpo-import.ps1
     args:
       creates: '{{ directory_logging }}\gpo-import.txt'
