@@ -1,4 +1,4 @@
-$BackupPath = "c:\GPO\GPO"
+$BackupPath = "{{ directory_gpo }}\GPO"
 
 Get-Childitem $BackupPath | ForEach-Object{
 

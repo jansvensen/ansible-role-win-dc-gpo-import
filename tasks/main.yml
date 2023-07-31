@@ -1,31 +1,31 @@
 ---
   - name: Delete GPO directory if exists
     ansible.windows.win_file:
-      path: c:\GPO
+      path: '{{ directory_gpo }}'
       state: absent
 
   - name: Make sure GPO directory exists
     ansible.windows.win_file:
-      path: c:\GPO
+      path: '{{ directory_gpo }}'
       state: directory
 
   - name: Copy GPO container
     ansible.builtin.copy:
       src: files/GPO.zip
-      dest: c:\GPO\GPO.zip
+      dest: '{{ directory_gpo }}\GPO.zip'
 
   - name: Copy Script
     ansible.builtin.copy:
       src: files/gpo-import.ps1
-      dest: c:\GPO\gpo-import.ps1
+      dest: '{{ directory_gpo }}\gpo-import.ps1'
 
   - name: Unzip GPO container
     community.windows.win_unzip:
-      src: c:\GPO\GPO.zip
-      dest: c:\GPO\GPO
+      src: '{{ directory_gpo }}\GPO.zip'
+      dest: '{{ directory_gpo }}\GPO'
 
   - name: Import GPO
     become: true
     script: files/gpo-import.ps1
     args:
-      creates: C:\Logs\gpo-import.txt
+      creates: '{{ directory_logging }}\gpo-import.txt'
