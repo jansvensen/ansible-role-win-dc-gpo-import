@@ -12,19 +12,19 @@
   - name: Copy GPO container
     ansible.builtin.copy:
       src: files/GPO.zip
-      dest: '{{ directory_gpo }}GPO.zip'
+      dest: '{{ directory_gpo }}\GPO.zip'
 
   - name: Copy Script
     ansible.builtin.copy:
       src: files/gpo-import.ps1
-      dest: '{{ directory_gpo }}gpo-import.ps1'
+      dest: '{{ directory_gpo }}\gpo-import.ps1'
 
   - name: Unzip GPO container
     community.windows.win_unzip:
-      src: '{{ directory_gpo }}GPO.zip'
+      src: '{{ directory_gpo }}\GPO.zip'
       dest: '{{ directory_gpo }}\GPO'
 
   - name: Import GPO
     script: files/gpo-import.ps1
     args:
-      creates: '{{ directory_logging }}gpo-import.txt'
+      creates: '{{ directory_logging }}\gpo-import.txt'
