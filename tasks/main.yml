@@ -22,7 +22,7 @@
   - name: Unzip GPO container
     community.windows.win_unzip:
       src: '{{ directory_gpo }}GPO.zip'
-      dest: '{{ directory_gpo }}GPO'
+      dest: '{{ directory_gpo }}\GPO'
 
   - name: Import GPO
     script: files/gpo-import.ps1
