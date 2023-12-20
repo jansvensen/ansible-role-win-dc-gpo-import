@@ -1,6 +1,4 @@
-write-output "#################################"
-whoami
-write-output "#################################"
+start-sleep -seconds 10 # For an unknown reason, Importing without a little timeout after unzipping fails with "access denied"
 
 $BackupPath = "c:\gpo\GPO"
 
