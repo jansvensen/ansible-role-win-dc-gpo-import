@@ -2,7 +2,6 @@ write-output "#################################"
 whoami
 write-output "#################################"
 
-
 $BackupPath = "c:\gpo\GPO"
 
 Get-Childitem $BackupPath | ForEach-Object{
