@@ -1,4 +1,4 @@
-﻿$TargetPath = "{{ directory_gpo }}"
+﻿$TargetPath = "{{ win.directory.gpo }}"
 mkdir $TargetPath
 
 Get-GPO -all | ForEach-Object{
