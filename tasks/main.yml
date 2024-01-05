@@ -14,11 +14,6 @@
       src: files/GPO.zip
       dest: '{{ directory_gpo }}/GPO.zip'
 
-  - name: Copy Script
-    ansible.builtin.copy:
-      src: files/gpo-import.ps1
-      dest: '{{ directory_gpo }}/gpo-import.ps1'
-
   - name: Unzip GPO container
     community.windows.win_unzip:
       src: '{{ directory_gpo }}\GPO.zip'
